@@ -1,0 +1,19 @@
+# Secret scanning on every commit.
+#
+# Gitleaks inspects each staged change and rejects the commit when it finds a
+# secret. The check runs on your machine, before anything reaches GitHub.
+#
+# ONE-TIME SETUP. RUN THIS IN EVERY CLONE:
+#
+#     brew install pre-commit      # or: pip install pre-commit
+#     pre-commit install
+#
+# This file on its own does nothing. `pre-commit install` is the step that
+# activates the hook on your machine.
+#
+# Docs: https://pre-commit.com | https://github.com/gitleaks/gitleaks
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
